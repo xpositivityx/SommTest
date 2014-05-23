@@ -7,20 +7,19 @@ class Flashcard < ActiveRecord::Base
 
 	def pick_answers subreg
 		answers = Array.new(4)
-		regs = (subreg.class).order("RANDOM()").limit(6)
-		puts regs
 		if subreg.is_a? Appellation
 			sub = 'subregion'
 		else
 			sub = 'region'
 		end
+		regs = sub.classify.constantize.order("RANDOM()").limit(6)
 		answers.each_with_index do |v, i|
 			if i == 0
 				answers[i] = subreg.send(sub).name
 			else
 				 regs.each do |item|
-				 	if !answers.include? item.send(sub).name
-				 		answers[i] = item.send(sub).name
+				 	if !answers.include? item.name
+				 		answers[i] = item.name
 				 		break
 				 	end
 				 end

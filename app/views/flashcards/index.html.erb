@@ -1,10 +1,26 @@
 <% subject = @question.pick_subject  %>
 <h1><%= @question.question.gsub("#{@question.concern}", subject.name) %></h1>
+<%		if subject.is_a? Appellation
+			sub = 'subregion'
+		else
+			sub = 'region'
+		end %>
 
 <p> answers: </p>
 <ol type = 'a'>
-<% @question.pick_answers(subject).each do |item| %>
+<% @question.pick_answers(subject).shuffle.each do |item| %>
 	<li><%= item %></li>
 <% end %>
 </ol>
 
+<button type = 'button' onclick="myFunction()">See Answer</button>
+<%= link_to "Next Question", :controller => "flashcards", :action => "index" %>
+
+<script>
+function myFunction() {
+	document.getElementById('answer').innerHTML  = "<%= subject.send(sub).name %>"
+}
+
+</script>
+
+<p id = "answer"><p>
