@@ -1,0 +1,10 @@
+<% subject = @question.pick_subject  %>
+<h1><%= @question.question.gsub("#{@question.concern}", subject.name) %></h1>
+
+<p> answers: </p>
+<ol type = 'a'>
+<% @question.pick_answers(subject).each do |item| %>
+	<li><%= item %></li>
+<% end %>
+</ol>
+
