@@ -5,7 +5,7 @@ class Flashcard < ActiveRecord::Base
 		return subreg
 	end
 
-	def pick_answers subreg
+	def pick_answers_regional subreg
 		answers = Array.new(4)
 		if subreg.is_a? Appellation
 			sub = 'subregion'
@@ -28,4 +28,30 @@ class Flashcard < ActiveRecord::Base
 		return answers
 	end
 
+	def pick_answers_grape subreg
+		answers = Array.new(4)
+		answers.each_with_index do |k,i|
+			array = []
+			if i == 0
+				subreg.grapes.each do |x|
+					array << x.name
+				end
+				answers[i] = array
+			else
+				regs = Grape.order("RANDOM()").shuffle
+				array2 = []
+				subreg.grapes.count.times do |q|
+					array2 << regs[q].name
+				end
+				answers[i] = array2
+			end
+		end
+		return answers
+	end
 end
+
+
+
+
+
+

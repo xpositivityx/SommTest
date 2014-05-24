@@ -1,14 +1,27 @@
 <% subject = @question.pick_subject  %>
-<h1><%= @question.question.gsub("#{@question.concern}", subject.name) %></h1>
-<%		if subject.is_a? Appellation
+
+
+<% if @question.concern2 == 'grapes' %>
+	<h1><%= @question.question.gsub("subregion", subject.name) %></h1>
+	<% method = 'pick_answers_grape' %>
+	<% answer = [] %>
+	<% subject.grapes.each do |grape| %>
+		<% answer << grape.name %>
+	<% end %>
+<% else %>
+	<%if subject.is_a? Appellation
 			sub = 'subregion'
 		else
 			sub = 'region'
 		end %>
+	<h1><%= @question.question.gsub("#{@question.concern}", subject.name) %></h1>
+	<% method = 'pick_answers_regional' %>
+	<% answer = subject.send(sub).name %>
+<% end %>
 
 <p> answers: </p>
 <ol type = 'a'>
-<% @question.pick_answers(subject).shuffle.each do |item| %>
+<% @question.send(method,subject).shuffle.each do |item| %>
 	<li><%= item %></li>
 <% end %>
 </ol>
@@ -18,7 +31,7 @@
 
 <script>
 function myFunction() {
-	document.getElementById('answer').innerHTML  = "<%= subject.send(sub).name %>"
+	document.getElementById('answer').innerHTML  = "<%= answer %>"
 }
 
 </script>
