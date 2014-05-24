@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523014559) do
+ActiveRecord::Schema.define(version: 20140523231127) do
 
   create_table "appellations", force: true do |t|
     t.string   "name"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20140523014559) do
     t.datetime "updated_at"
   end
 
+  create_table "grapes", force: true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "regions", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -38,6 +45,13 @@ ActiveRecord::Schema.define(version: 20140523014559) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "region_id"
+  end
+
+  create_table "subvitis", force: true do |t|
+    t.integer  "subregion_id"
+    t.integer  "grape_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subregion_id: 
+  grape_id: 
+
+two:
+  subregion_id: 
+  grape_id: 
