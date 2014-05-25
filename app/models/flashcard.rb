@@ -1,5 +1,4 @@
 class Flashcard < ActiveRecord::Base
-
 	def pick_subject
 		subreg = self.concern.classify.constantize.order("RANDOM()").first
 		return subreg
