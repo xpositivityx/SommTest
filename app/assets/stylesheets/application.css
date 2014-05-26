@@ -11,3 +11,10 @@
  *= require_self
  *= require_tree .
  */
+body {
+	background: url('http://s4.goodfon.su/wallpaper/previews-middle/227.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 120%, 70%;
+	font-family: 'Open Sans', sans-serif;
+}

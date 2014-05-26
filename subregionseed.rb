@@ -1,9 +1,8 @@
-subregion = ["Alsace", "Bordeaux", "Burgundy", "Champagne",
-"Languedoc-Roussillon", "Loire", "Provence", "Rhone"]
+subregion = ["California", "Oregon", 'Washington State', 'New York', 'Texas']
 
 subregion.each do |sub|
 	r = Subregion.new
 	r.name = sub
-	r.region_id = 1
+	r.region_id = Region.where(name: 'United States')
 	r.save
 end

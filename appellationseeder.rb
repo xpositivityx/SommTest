@@ -1,9 +1,9 @@
-array = ['Muscadet', 'Anjou-Saumur', 'Touraine', 'Sancerre', 'Pouilly-Fume',
-'Menetou-Salon', 'Quincy', 'Reuilly']
+array = ['Willamette Valley', 'Columbia Valley', 'Walla Walla', 'Umpqua Valley', 'Rogue Valley']
+
 
 array.each do |app|
 	a = Appellation.new
 	a.name = app
-	a.subregion_id = Subregion.where(name: 'Loire').first.id
+	a.subregion_id = Subregion.where(name: 'Washington State').first.id
 	a.save
 end

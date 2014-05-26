@@ -1,10 +1,9 @@
-array = ['St.-Amour', 'Julienas', 'Chenas', 'Moulin-a-Vent', 'Fleurie', 'Chiroubles',
-'Margon', 'Regnie', 'Brouilly', 'Cote de Brouilly']
+array = ['Hudson River Valley', 'Finger Lakes', 'Lake Erie', 'Long Island']
 
 
 array.each do |sa|
 	s = Subappellation.new
 	s.name = sa
-	s.appellation_id = Appellation.where(name: 'Beaujolais').first.id
+	s.appellation_id = Appellation.where(name: 'Sierra Foothills').first.id
 	s.save
 end

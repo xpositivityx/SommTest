@@ -8,6 +8,7 @@
 	<% subject.grapes.each do |grape| %>
 		<% answer << grape.name %>
 	<% end %>
+	<% answer.shuffle %>
 <% else %>
 	<%if subject.is_a? Appellation
 			sub = 'subregion'
