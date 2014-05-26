@@ -11,8 +11,10 @@
 <% else %>
 	<%if subject.is_a? Appellation
 			sub = 'subregion'
-		else
+		elsif subject.is_a? Subregion
 			sub = 'region'
+		else
+			sub = 'appellation'
 		end %>
 	<h1><%= @question.question.gsub("#{@question.concern}", subject.name) %></h1>
 	<% method = 'pick_answers_regional' %>

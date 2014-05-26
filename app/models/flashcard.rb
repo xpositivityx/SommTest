@@ -8,8 +8,10 @@ class Flashcard < ActiveRecord::Base
 		answers = Array.new(4)
 		if subreg.is_a? Appellation
 			sub = 'subregion'
-		else
+		elsif subreg.is_a? Subregion
 			sub = 'region'
+		else
+			sub = 'appellation'
 		end
 		regs = sub.classify.constantize.order("RANDOM()").limit(6)
 		answers.each_with_index do |v, i|
@@ -48,9 +50,3 @@ class Flashcard < ActiveRecord::Base
 		return answers
 	end
 end
-
-
-
-
-
-
