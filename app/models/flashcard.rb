@@ -49,4 +49,19 @@ class Flashcard < ActiveRecord::Base
 		end
 		return answers
 	end
+
+	def pick_answers_vocab word
+		answers = Array.new(4)
+		regs = Vocab.order("Random()")
+		answers.each_with_index do |k,i|
+			if i == 0
+				answers[i] = word.definition
+			else
+				if !answers.include? regs[i].definition
+					answers[i] = regs[i].definition
+				end
+			end
+		end
+
+	end
 end

@@ -1,7 +1,7 @@
 class FlashcardsController < ApplicationController
   def index
   	@question = Flashcard.order("RANDOM()").first
-  	# @question = Flashcard.last
+  	#@question = Flashcard.last
   end
 
   

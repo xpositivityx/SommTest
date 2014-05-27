@@ -18,3 +18,7 @@ body {
 	background-size: 120%, 70%;
 	font-family: 'Open Sans', sans-serif;
 }
+
+.flashcard {
+	width:70%;
+}

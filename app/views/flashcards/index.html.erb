@@ -1,6 +1,6 @@
 <% subject = @question.pick_subject  %>
 
-
+<div class='flashcard'>
 <% if @question.concern2 == 'grapes' %>
 	<h1><%= @question.question.gsub("subregion", subject.name) %></h1>
 	<% method = 'pick_answers_grape' %>
@@ -9,6 +9,11 @@
 		<% answer << grape.name %>
 	<% end %>
 	<% answer.shuffle %>
+<% elsif @question.concern == 'vocab' %>
+	<h1><%= @question.question.gsub('vocab', subject.word) %></h1>
+	<% method = 'pick_answers_vocab' %>
+	<% answer = subject.definition %>
+
 <% else %>
 	<%if subject.is_a? Appellation
 			sub = 'subregion'
@@ -22,21 +27,21 @@
 	<% answer = subject.send(sub).name %>
 <% end %>
 
-<p> answers: </p>
-<ol type = 'a'>
-<% @question.send(method,subject).shuffle.each do |item| %>
-	<li><%= item %></li>
-<% end %>
-</ol>
-
-<button type = 'button' onclick="myFunction()">See Answer</button>
-<%= link_to "Next Question", :controller => "flashcards", :action => "index" %>
-
 <script>
 function myFunction() {
 	document.getElementById('answer').innerHTML  = "<%= answer %>"
 }
 
 </script>
+
+<p> answers: </p>
+<ol type = 'a'>
+<% @question.send(method,subject).shuffle.each do |item| %>
+	<li><%= item %></li>
+<% end %>
+</ol>
+</div>
+<button type = 'button' onclick="myFunction()">See Answer</button>
+<%= link_to "Next Question", :controller => "flashcards", :action => "index" %>
 
 <p id = "answer"><p>
