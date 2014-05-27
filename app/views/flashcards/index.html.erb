@@ -9,6 +9,7 @@
 		<% answer << grape.name %>
 	<% end %>
 	<% answer.shuffle %>
+	
 <% elsif @question.concern == 'vocab' %>
 	<h1><%= @question.question.gsub('vocab', subject.word) %></h1>
 	<% method = 'pick_answers_vocab' %>
