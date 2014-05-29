@@ -1,6 +1,15 @@
 class Flashcard < ActiveRecord::Base
 	def pick_subject
-		subreg = self.concern.classify.constantize.order("RANDOM()").first
+		subregs = self.concern.classify.constantize.order("RANDOM()")
+		subreg = subregs[0]
+		counter = 0
+		if self.concern2 == 'grapes'
+			until subreg.grapes.count > 0 do
+				subreg = subregs[counter]
+				counter += 1
+				puts counter
+			end
+		end
 		return subreg
 	end
 
