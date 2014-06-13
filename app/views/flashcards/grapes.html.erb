@@ -30,7 +30,7 @@
 
 <script>
 function myFunction() {
-	document.getElementById('answer').innerHTML  = "<%= answer %>"
+	document.getElementById('answer').innerHTML  = "<%= arrayformat(answer) %>"
 }
 
 </script>
@@ -38,11 +38,11 @@ function myFunction() {
 <p> answers: </p>
 <ol type = 'a'>
 <% @question.send(method,subject).shuffle.each do |item| %>
-	<li><%= flashformat(item) %></li>
+	<li><%= arrayformat(item) %></li>
 <% end %>
 </ol>
 </div>
 <button type = 'button' onclick="myFunction()">See Answer</button>
-<%= link_to "Next Question", :controller => "flashcards", :action => "index" %>
+<%= link_to "Next Question", :controller => "flashcards", :action => "grapes" %>
 
 <p id = "answer"><p>

@@ -38,11 +38,11 @@ function myFunction() {
 <p> answers: </p>
 <ol type = 'a'>
 <% @question.send(method,subject).shuffle.each do |item| %>
-	<li><%= flashformat(item) %></li>
+	<li><%= item %></li>
 <% end %>
 </ol>
 </div>
 <button type = 'button' onclick="myFunction()">See Answer</button>
-<%= link_to "Next Question", :controller => "flashcards", :action => "index" %>
+<%= link_to "Next Question", :controller => "flashcards", :action => "appellations" %>
 
 <p id = "answer"><p>

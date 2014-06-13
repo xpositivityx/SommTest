@@ -1,4 +1,4 @@
-array = ['Lujan de Cuyo', 'Maipu']
+array = ['Vermentino di Gallura', 'Vernaccia di Oristno']
 
 
 # array.each do |app|
@@ -9,6 +9,6 @@ array = ['Lujan de Cuyo', 'Maipu']
 array.each do |app|
 	a = Appellation.new
 	a.name = app
-	a.subregion_id = Subregion.where(name: 'Valle Central').first.id
+	a.subregion_id = Subregion.where(name: 'Sardinia').first.id
 	a.save
 end

@@ -1,5 +1,10 @@
 SomeFlash::Application.routes.draw do
   get "flashcards/index"
+  get "flashcards/subregions"
+  get "flashcards/appellations"
+  get "flashcards/subappellations"
+  get "flashcards/grapes"
+  get "flashcards/vocab"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

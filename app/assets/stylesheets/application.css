@@ -1,4 +1,4 @@
-/*
+/*f
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -17,8 +17,14 @@ body {
 	background-position: center;
 	background-size: 120%, 70%;
 	font-family: 'Open Sans', sans-serif;
+	margin-left: 15px;
 }
 
 .flashcard {
 	width:70%;
+}
+
+#answer {
+	width: 500px;
+	padding-top: 50px;
 }
