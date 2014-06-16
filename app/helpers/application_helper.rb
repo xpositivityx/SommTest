@@ -1,9 +1,17 @@
 module ApplicationHelper
 	def flashformat string
-		return string.gsub("\"",'')
+		if string.is_a? String
+			return string.gsub("\"",'')
+		else
+			return string.join(', ')
+		end
 	end
 
 	def arrayformat string
-		return string.join(', ')
+		if string.is_a? Array
+			return string.join(', ')
+		else
+			return string
+		end
 	end
 end

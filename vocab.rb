@@ -1,4 +1,4 @@
 v = Vocab.new
-v.word = "Asciutto"
-v.definition = "Totally Dry."
+v.word = "Botte"
+v.definition = "Cask or Barrel."
 v.save
