@@ -42,8 +42,9 @@ group :test do
 	gem 'capybara-webkit'
 end
 
-gem 'pg'
-
+group :deployment do
+	gem 'pg'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
