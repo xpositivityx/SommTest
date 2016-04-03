@@ -35,6 +35,7 @@ end
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
+	gem 'sqlite3'
 end
 
 group :test do
@@ -45,6 +46,7 @@ end
 group :deployment do
 	gem 'pg'
 end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
