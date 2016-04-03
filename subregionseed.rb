@@ -1,10 +1,9 @@
-subregion = ['Piedmont', 'Lombardy', 'The Tre Venezie', 'Liguria', 'Emilia-Romagna', 'Tuscany', 'Umbria', 'Abruzzi',
-'Capania', 'Apulia', 'Sardinia', 'Sicily', 'Basilicata', 'Calabria']
+subregion = ['Minho', 'Douro', 'Bairrada', 'Dao', 'Alentejo', 'Setubal', 'Medeira']
 
 subregion.each do |sub|
 
 	r = Subregion.new
 	r.name = sub
-	r.region_id = Region.where(name: 'Italy').first.id
+	r.region_id = Region.where(name: 'Portugal').first.id
 	r.save
 end
