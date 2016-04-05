@@ -45,6 +45,7 @@ end
 
 group :deployment do
 	gem 'pg'
+	gem 'passenger'
 end
 
 # Use ActiveModel has_secure_password
